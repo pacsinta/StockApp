@@ -1,5 +1,7 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import tkinter as tk
 
 #intl = yf.download('INTC')
 #print(intl.head())
@@ -12,8 +14,8 @@ class Corp:
     name = ""
     def __init__(self, short):
         ticker = yf.Ticker(short)
-        self.market_cap = ticker.fast_info["marketCap"]
-        self.revenue = ticker.info["revenue"]
+        self.market_cap = ticker.info["marketCap"]
+        
 
 corps = []
 for short in shorts:
@@ -25,7 +27,15 @@ for corp in corps:
     marketcaps.append(corp.market_cap)
 
 
+# Create window
+window = tk.Tk()
+window.title("Stocks")
+
+
 figure, axis = plt.subplots(1, 1) # row, column
 
 plt.bar(list(range(1, len(corps)+1)), marketcaps, tick_label=shorts)
-plt.show()
+
+canvas = FigureCanvasTkAgg(figure, master=window)
+canvas.get_tk_widget().pack()
+window.mainloop()
