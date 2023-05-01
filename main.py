@@ -36,6 +36,8 @@ figure, axis = plt.subplots(1, 1) # row, column
 
 plt.bar(list(range(1, len(corps)+1)), marketcaps, tick_label=shorts)
 
-canvas = FigureCanvasTkAgg(figure, master=window)
-canvas.get_tk_widget().pack()
+marketcap_label = tk.Label(text="Market Cap", font=("Arial", 32))
+marketcap_label.pack()
+marketcap = FigureCanvasTkAgg(figure, master=window)
+marketcap.get_tk_widget().pack()
 window.mainloop()
