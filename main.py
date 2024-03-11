@@ -6,7 +6,7 @@ from ui import *
 #intl = yf.download('INTC')
 #print(intl.head())
 
-shorts = ["AAPL", "INTC", "TSLA", "MSFT", "NVDA"]
+shorts = ["AAPL", "INTC", "TSLA", "MSFT", "NVDA", "AMD"]
 
 class Corp:
     market_cap = 0
@@ -26,9 +26,6 @@ marketcaps = []
 for corp in corps:
     marketcaps.append(corp.market_cap)
 
-
-figure, axis = plt.subplots(1, 1) # row, column
-plt.bar(list(range(1, len(corps)+1)), marketcaps, tick_label=shorts)
 
 if __name__ == "__main__":
     app = App(figure)
