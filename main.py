@@ -2,10 +2,6 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 from ui import *
 
-
-#intl = yf.download('INTC')
-#print(intl.head())
-
 shorts = ["AAPL", "INTC", "TSLA", "MSFT", "NVDA", "AMD"]
 
 class Corp:
