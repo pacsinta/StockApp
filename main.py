@@ -26,7 +26,8 @@ marketcaps = []
 for corp in corps:
     marketcaps.append(corp.market_cap)
 
+corp_map = {short: {"corp": corp, "market_cap": corp.market_cap} for short, corp in zip(shorts, corps)}
 
 if __name__ == "__main__":
-    app = App(figure)
+    app = App(corp_map)
     app.mainloop()
